@@ -33,11 +33,6 @@ namespace webapi.healthclinic.codefirst.Repositories
             }
         }
 
-        public void Atualizar(Guid id, Usuario pacienteAtualizado)
-        {
-            throw new NotImplementedException();
-        }
-
         public Paciente BuscarPorId(Guid id)
         {
             return c.Paciente!.FirstOrDefault(p => p.IdPaciente == id)!;

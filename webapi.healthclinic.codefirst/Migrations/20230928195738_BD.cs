@@ -20,7 +20,7 @@ namespace webapi.healthclinic.codefirst.Migrations
                     RazaoSocial = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     CNPJ = table.Column<string>(type: "VARCHAR(14)", maxLength: 14, nullable: false),
                     Endereco = table.Column<string>(type: "VARCHAR(100)", nullable: false),
-                    HorarioFuncionamento = table.Column<string>(type: "VARCHAR(15)", nullable: false)
+                    HorarioFuncionamento = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,7 +105,7 @@ namespace webapi.healthclinic.codefirst.Migrations
                 columns: table => new
                 {
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DataNascimento = table.Column<string>(type: "VARCHAR(6)", nullable: false),
+                    DataNascimento = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -124,7 +124,7 @@ namespace webapi.healthclinic.codefirst.Migrations
                 columns: table => new
                 {
                     IdConsulta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DatetimeConsulta = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    DatetimeConsulta = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     DescricaoConsulta = table.Column<string>(type: "TEXT", nullable: false),
                     IdClinica = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),

@@ -27,7 +27,7 @@ namespace webapi.healthclinic.codefirst.Domains
         [Required(ErrorMessage = "Endereço da clínica é obrigatório!")]
         public string? Endereco { get; set; }
 
-        [Column(TypeName = "VARCHAR(15)")]
+        [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "Horário de funcionamento da clínica é obrigatório!")]
         public string? HorarioFuncionamento { get; set; }
     }

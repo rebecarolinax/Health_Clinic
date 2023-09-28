@@ -10,7 +10,7 @@ namespace webapi.healthclinic.codefirst.Domains
         public Guid IdMedico { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage = "O campo Nome é obrigatório.")]
-        [Column(TypeName = "nvarchar(255)")]
+        [Column(TypeName = "VARCHAR(100)")]
         public string? NomeMedico { get; set; }
 
         [Required(ErrorMessage = "O campo CRM é obrigatório.")]

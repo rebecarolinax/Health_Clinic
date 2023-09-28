@@ -22,6 +22,9 @@ namespace webapi.healthclinic.codefirst.Repositories
                 if (usuarioBuscado != null)
                 {
                     usuarioBuscado.NomeUsuario = usuarioAtualizado.NomeUsuario;
+                    usuarioBuscado.CPF = usuarioAtualizado.CPF;
+                    usuarioBuscado.Email = usuarioAtualizado.Email;
+                    usuarioBuscado.Senha = usuarioAtualizado.Senha;
                 }
 
                 c.Usuario.Update(usuarioBuscado!);
@@ -42,13 +45,11 @@ namespace webapi.healthclinic.codefirst.Repositories
                  .Select(u => new Usuario
                  {
                      IdUsuario = u.IdUsuario,
-                     IdTipoUsuario = u.IdTipoUsuario,
-                     NomeUsuario = u.NomeUsuario,
-                     CPF = u.CPF,
                      Email = u.Email,
                      Senha = u.Senha,
                      TipoUsuario = new TipoUsuario
                      {
+                         IdTipoUsuario = u.IdTipoUsuario,
                          Titulo = u.TipoUsuario!.Titulo
                      }
 
@@ -80,6 +81,7 @@ namespace webapi.healthclinic.codefirst.Repositories
         {
             try
             {
+                usuarioCadastrado.Senha = Criptografia.GerarHash(usuarioCadastrado.Senha!);
                 c.Usuario!.Add(usuarioCadastrado);
                 c.SaveChanges();
             }

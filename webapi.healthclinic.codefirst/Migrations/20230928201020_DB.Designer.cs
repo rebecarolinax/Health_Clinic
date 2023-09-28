@@ -12,8 +12,8 @@ using webapi.healthclinic.codefirst.Contexts;
 namespace webapi.healthclinic.codefirst.Migrations
 {
     [DbContext(typeof(HealthClinicContext))]
-    [Migration("20230927200953_BD")]
-    partial class BD
+    [Migration("20230928201020_DB")]
+    partial class DB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace webapi.healthclinic.codefirst.Migrations
 
                     b.Property<string>("HorarioFuncionamento")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(15)");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("NomeFantasia")
                         .IsRequired()
@@ -63,9 +63,9 @@ namespace webapi.healthclinic.codefirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("DatetimeConsulta")
+                    b.Property<string>("DatetimeConsulta")
                         .IsRequired()
-                        .HasColumnType("DATETIME");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<string>("DescricaoConsulta")
                         .IsRequired()
@@ -149,7 +149,7 @@ namespace webapi.healthclinic.codefirst.Migrations
 
                     b.Property<string>("NomeMedico")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdMedico");
 
@@ -168,7 +168,7 @@ namespace webapi.healthclinic.codefirst.Migrations
 
                     b.Property<string>("DataNascimento")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(6)");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<Guid>("IdUsuario")
                         .HasColumnType("uniqueidentifier");

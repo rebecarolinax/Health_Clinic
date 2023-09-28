@@ -67,7 +67,7 @@ namespace webapi.healthclinic.codefirst.Repositories
 
         public List<TipoUsuario> ListarTodos()
         {
-            throw new NotImplementedException();
+            return c.TipoUsuario.ToList();
         }
     }
 }
