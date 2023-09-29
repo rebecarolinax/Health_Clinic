@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using webapi.healthclinic.codefirst.Domains;
 using webapi.healthclinic.codefirst.Interfaces;
 using webapi.healthclinic.codefirst.Repositories;
@@ -19,6 +21,7 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
             try
@@ -33,6 +36,7 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult GetById(Guid id) 
         {
             try
@@ -47,6 +51,7 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(Usuario usuarioCadastrado)
         {
             try
@@ -61,6 +66,7 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
@@ -75,6 +81,7 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Put(Usuario usuarioCadastrado, Guid id)
         {
             try

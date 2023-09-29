@@ -1,10 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace webapi.healthclinic.codefirst.Domains
 {
     [Table(nameof(Clinica))]
+    [Index(nameof(CNPJ), IsUnique = true)]
+    [Index(nameof(Endereco), IsUnique = true)] 
+    [Index(nameof(RazaoSocial), IsUnique = true)]
     public class Clinica
     {
         [Key]
@@ -27,8 +31,12 @@ namespace webapi.healthclinic.codefirst.Domains
         [Required(ErrorMessage = "Endereço da clínica é obrigatório!")]
         public string? Endereco { get; set; }
 
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "Horário de funcionamento da clínica é obrigatório!")]
-        public string? HorarioFuncionamento { get; set; }
+        [Column(TypeName = "TIME")]
+        [Required(ErrorMessage = "Obrigatório")]
+        public TimeSpan? HoraInicio { get; set; }
+
+        [Column(TypeName = "TIME")]
+        [Required(ErrorMessage = "Obrigatório")]
+        public TimeSpan? HoraFinal { get; set; }
     }
 }

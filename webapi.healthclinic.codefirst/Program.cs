@@ -1,7 +1,9 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using System.ComponentModel;
 using System.Reflection;
+using webapi.healthclinic.codefirst.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = "JwtBearer";
     options.DefaultAuthenticateScheme = "JwtBearer";
 })
+
+
 
 .AddJwtBearer("JwtBearer", options =>
 {
@@ -51,6 +55,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new TimeSpanConvert());
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

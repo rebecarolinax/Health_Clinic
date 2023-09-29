@@ -12,8 +12,8 @@ using webapi.healthclinic.codefirst.Contexts;
 namespace webapi.healthclinic.codefirst.Migrations
 {
     [DbContext(typeof(HealthClinicContext))]
-    [Migration("20230928201020_DB")]
-    partial class DB
+    [Migration("20230929184355_BD")]
+    partial class BD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,9 +40,13 @@ namespace webapi.healthclinic.codefirst.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
-                    b.Property<string>("HorarioFuncionamento")
+                    b.Property<TimeSpan?>("HoraFinal")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("TIME");
+
+                    b.Property<TimeSpan?>("HoraInicio")
+                        .IsRequired()
+                        .HasColumnType("TIME");
 
                     b.Property<string>("NomeFantasia")
                         .IsRequired()
@@ -54,6 +58,15 @@ namespace webapi.healthclinic.codefirst.Migrations
 
                     b.HasKey("IdClinica");
 
+                    b.HasIndex("CNPJ")
+                        .IsUnique();
+
+                    b.HasIndex("Endereco")
+                        .IsUnique();
+
+                    b.HasIndex("RazaoSocial")
+                        .IsUnique();
+
                     b.ToTable("Clinica");
                 });
 
@@ -63,9 +76,8 @@ namespace webapi.healthclinic.codefirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DatetimeConsulta")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
+                    b.Property<DateTime>("DataEHora")
+                        .HasColumnType("DATETIME");
 
                     b.Property<string>("DescricaoConsulta")
                         .IsRequired()

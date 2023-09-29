@@ -16,17 +16,5 @@
         <member name="M:webapi.healthclinic.codefirst.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:webapi.healthclinic.codefirst.Migrations.DB">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.healthclinic.codefirst.Migrations.DB.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.healthclinic.codefirst.Migrations.DB.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.healthclinic.codefirst.Migrations.DB.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
     </members>
 </doc>

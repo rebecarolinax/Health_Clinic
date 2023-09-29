@@ -10,7 +10,7 @@ namespace webapi.healthclinic.codefirst.Domains
         public Guid IdPaciente { get; set; } = Guid.NewGuid();
 
         [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "Data de nascimento do paciente é obrigatória!")]
+        [Required(ErrorMessage = "Data de nascimento do paciente é obrigatória! (dd/mm/aa)")]
         public string? DataNascimento { get; set; }
 
         [Required(ErrorMessage = "Informe o usuário relacionado ao paciente!")]

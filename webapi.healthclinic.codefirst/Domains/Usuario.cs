@@ -7,7 +7,6 @@ namespace webapi.healthclinic.codefirst.Domains
     [Table(nameof(Usuario))]
     [Index(nameof(Email), IsUnique = true)]
     [Index(nameof(CPF), IsUnique = true)]
-
     public class Usuario
     {
         [Key]

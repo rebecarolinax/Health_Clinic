@@ -12,6 +12,7 @@ namespace webapi.healthclinic.codefirst.Repositories
             c = new HealthClinicContext();
         }
 
+
         public void Atualizar(Guid id, Consulta consultaAtualizada)
         {
             try
@@ -20,7 +21,7 @@ namespace webapi.healthclinic.codefirst.Repositories
 
                 if (consultaBuscada != null)
                 {
-                    consultaBuscada.DatetimeConsulta = consultaAtualizada.DatetimeConsulta;
+                    consultaBuscada.DataEHora= consultaAtualizada.DataEHora;
                     consultaBuscada.DescricaoConsulta = consultaAtualizada.DescricaoConsulta;
                 }
 

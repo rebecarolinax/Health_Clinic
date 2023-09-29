@@ -24,7 +24,8 @@ namespace webapi.healthclinic.codefirst.Repositories
                     clinicaBuscada.RazaoSocial = clinicaAtualizada.RazaoSocial;
                     clinicaBuscada.CNPJ = clinicaAtualizada.CNPJ;  
                     clinicaBuscada.Endereco = clinicaAtualizada.Endereco;
-                    clinicaBuscada.HorarioFuncionamento = clinicaAtualizada.HorarioFuncionamento;
+                    clinicaBuscada.HoraInicio = clinicaAtualizada.HoraInicio;
+                    clinicaBuscada.HoraFinal = clinicaAtualizada.HoraFinal;
                 }
 
                 c.Clinica.Update(clinicaBuscada!);

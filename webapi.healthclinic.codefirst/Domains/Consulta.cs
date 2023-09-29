@@ -9,9 +9,9 @@ namespace webapi.healthclinic.codefirst.Domains
         [Key]
         public Guid IdConsulta { get; set; } = Guid.NewGuid();
 
-        [Column(TypeName = "VARCHAR(100)")]
-        [Required(ErrorMessage = "Data e horário da consulta é obrigatório!")]
-        public string? DatetimeConsulta { get; set; }
+        [Column(TypeName = "DATETIME")]
+        [Required(ErrorMessage = "A data e o horário do agendamento é obrigatório!")]
+        public DateTime DataEHora { get; set; }
 
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "Descrição para prontuário da consulta é obrigatória!")]

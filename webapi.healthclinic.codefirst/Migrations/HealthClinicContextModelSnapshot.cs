@@ -37,9 +37,13 @@ namespace webapi.healthclinic.codefirst.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
-                    b.Property<string>("HorarioFuncionamento")
+                    b.Property<TimeSpan?>("HoraFinal")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("TIME");
+
+                    b.Property<TimeSpan?>("HoraInicio")
+                        .IsRequired()
+                        .HasColumnType("TIME");
 
                     b.Property<string>("NomeFantasia")
                         .IsRequired()
@@ -51,6 +55,15 @@ namespace webapi.healthclinic.codefirst.Migrations
 
                     b.HasKey("IdClinica");
 
+                    b.HasIndex("CNPJ")
+                        .IsUnique();
+
+                    b.HasIndex("Endereco")
+                        .IsUnique();
+
+                    b.HasIndex("RazaoSocial")
+                        .IsUnique();
+
                     b.ToTable("Clinica");
                 });
 
@@ -60,9 +73,8 @@ namespace webapi.healthclinic.codefirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DatetimeConsulta")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
+                    b.Property<DateTime>("DataEHora")
+                        .HasColumnType("DATETIME");
 
                     b.Property<string>("DescricaoConsulta")
                         .IsRequired()
