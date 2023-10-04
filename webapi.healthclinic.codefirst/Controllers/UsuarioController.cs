@@ -21,7 +21,6 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
         public IActionResult Get()
         {
             try
@@ -36,7 +35,6 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Administrador")]
         public IActionResult GetById(Guid id) 
         {
             try
@@ -51,7 +49,6 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
         public IActionResult Post(Usuario usuarioCadastrado)
         {
             try
@@ -66,7 +63,6 @@ namespace webapi.healthclinic.codefirst.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(Guid id)
         {
             try
